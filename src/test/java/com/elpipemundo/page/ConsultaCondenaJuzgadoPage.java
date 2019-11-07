@@ -3,8 +3,12 @@ package com.elpipemundo.page;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
+import net.thucydides.core.annotations.DefaultUrl;
 
+@DefaultUrl("https://procesos.ramajudicial.gov.co/jepms/medellinjepms/conectar.asp")
 public class ConsultaCondenaJuzgadoPage extends PageObject {
+/*Mapping de controles que serán usados en las pruebas*/
+
 
     public static final Target SELECT_OPCION_BUSQUEDA=Target.the("Select de opción búsqueda").located(By.xpath("//select[@name='cbadju']"));
 

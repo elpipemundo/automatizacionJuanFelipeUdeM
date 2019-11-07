@@ -32,13 +32,10 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class ConsultaProcesosSteps {
-   // public WebDriver driver;
 
     @Before
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
-        //driver=((WebDriverFacade) ThucydidesWebDriverSupport.getDriver()).getProxiedDriver();
-
     }
 
     @Dado("que \"(.*)\" esta consultando el proceso judicial")
@@ -55,7 +52,7 @@ public class ConsultaProcesosSteps {
         theActorInTheSpotlight().attemptsTo(
                 SelectFromOptions.byVisibleText(ciudad).from(SELECT_CIUDAD),
                 WaitUntil.the(SELECT_CIUDAD,isClickable()),
-                Esperar.unMomento(1000),
+                Esperar.unMomento(1000),/* Se requiere una pausa ya que a veces la velocidad de carga de la página no es muy buena*/
                 SelectFromOptions.byVisibleText(entidad).from(SELECT_ENTIDAD),
                 WaitUntil.the(SELECT_ENTIDAD,isClickable()),
                Enter.theValue(nroRadicado).into(TEXT_RADICADO)

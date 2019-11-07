@@ -34,8 +34,6 @@ public class ConsultaCondenaSteps {
     @Before
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
-        //driver=((WebDriverFacade) ThucydidesWebDriverSupport.getDriver()).getProxiedDriver();
-
     }
     /********************************************************CONDENA********************************************************/
     @Dado("que \"(.*)\" cuenta con proceso judicial en la ciudad de \"(.*)\"")
@@ -51,6 +49,8 @@ public class ConsultaCondenaSteps {
                 SelectFromOptions.byVisibleText(ciudad).from(SELECT_CIUDAD_JUZGADO),
                 Click.on(BTN_JUZGADO)
         );
+        /*El paso anterior del actor genera una nueva pestaña dodne continua el flujo, por lo que es necesario moverse a
+        dicha pestaña para continuar con la prueba*/
         Set<String> handles = getDriver().getWindowHandles();
         String firstWinHandle = getDriver().getWindowHandle();
         handles.remove(firstWinHandle);
@@ -64,7 +64,6 @@ public class ConsultaCondenaSteps {
     @Cuando("se consulta el expediente por \"(.*)\" para el documento \"(.*)\" y selecciona el radicado \"(.*)\"")
     public void ConsultarExpedientePorParaElDocumentoYSeleccionaElRadicado(String opcionBusqueda, String documento, String radicado) {
 
-        //Esperar.unMomento(3000);
         theActorInTheSpotlight().attemptsTo(
                 SelectFromOptions.byVisibleText(opcionBusqueda).from(SELECT_OPCION_BUSQUEDA),
                 Enter.theValue(documento).into(TEXT_DATO_FILTRO),
@@ -72,7 +71,7 @@ public class ConsultaCondenaSteps {
         );
 
         theActorInTheSpotlight().attemptsTo(
-                Click.on(pathDinamicoCondena(radicado)),
+                Click.on(pathDinamicoCondena(radicado)),/*Seleccionar el elemento adecuado de acuerdo al radicado*/
                 Click.on(LNK_DETALLE_RADICADO)
         );
 

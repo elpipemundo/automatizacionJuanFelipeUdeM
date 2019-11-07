@@ -1,8 +1,7 @@
 # language: es
-Característica: Proceso Judicial
+Característica: Consultar Condena
     Felipe como ciudadano
-    Quiere consultar sus procesos judiciales
-    Para ver los avances de su proceso judicial
+    Quiere consultar la condena de Sergio
 
     Escenario: Consultar expediente de penas para SERGIO ELIECER - MARTINEZ PEREZ
       Dado  que "SERGIO ELIECER - MARTINEZ PEREZ" cuenta con proceso judicial en la ciudad de "MEDELLIN"

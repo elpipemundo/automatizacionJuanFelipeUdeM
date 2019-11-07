@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
+/*Juan Felipe - Interacion que permitirá realizar pausas (sleep) durante la ejecucución del actor, con el fin de
+esperar que la página responda
+ */
 public class Esperar implements Interaction {
     private int tiempo;
 

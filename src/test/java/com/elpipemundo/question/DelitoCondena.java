@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Question;
 
 import static com.elpipemundo.page.DetalleProcesoJuzgadoPage.TD_DELITO_CONDENA;
 
+/*Verificar que el tipo de delito es el esperado*/
 public class DelitoCondena implements Question<String> {
     @Override
     public String answeredBy(Actor actor) {
